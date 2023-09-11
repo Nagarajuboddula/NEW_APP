@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('S3 create bucket') {
+        stage('tfff') {
         steps{
             sh "terraform init -reconfigure"
         }
