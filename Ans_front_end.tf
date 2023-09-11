@@ -27,7 +27,7 @@ resource "aws_instance" "Ans_frontend_ec2_instance" {
 
 
 
-
+/*
 
 ## file inventory.tf
 
@@ -43,5 +43,5 @@ resource "local_file" "hosts" {
   filename = "${path.module}/hosts"
 
   content = data.template_file.ansible_inventory.rendered
-}
+}*/
 
