@@ -16,3 +16,27 @@ resource "aws_instance" "Ans_frontend_ec2_instance" {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+resource "local_file" "inventory" {
+  content = templatefile("inventory.tmpl", { content = tomap({
+    for instance in aws_instance.Ans_frontend_ec2_instance:
+      instance.tags.Name => instance.public_dns
+    })
+  })
+  filename = format("%s/%s", abspath(path.root), "inventory.yaml")
+}
+
+
+
