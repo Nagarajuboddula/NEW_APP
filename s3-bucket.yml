@@ -3,5 +3,5 @@
   become: True
   tasks:
     - name: create s3 bucket for storing state file
-      s3_bucket: Ansible_bucket_septemb
+      s3_bucket: Ansible-bucket-septemb
       state: present
