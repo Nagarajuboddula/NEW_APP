@@ -1,16 +1,16 @@
 ---
 - hosts: localhost
-vars:
- state: present
- s3_bucket: ansiblebucketseptemb
- key: terraform.tfstate
- region: eu-east-2
-tasks:
-- name: Run terraform scripts
-terraform:
- project_path: "./" 
- state: "{{ state}}"
- backend_config:
-  bucket: "{{s3_bucket}}"
-  key: "{{key}}"
-  region: "{{region}}"
+  vars:
+    state: present
+    s3_bucket: ansiblebucketseptemb
+    key: terraform.tfstate
+    region: eu-east-2
+  tasks:
+    - name: Run terraform scripts
+      terraform:
+        project_path: "./" 
+        state: "{{ state}}"
+        backend_config:
+        bucket: "{{s3_bucket}}"
+        key: "{{key}}"
+        region: "{{region}}"
