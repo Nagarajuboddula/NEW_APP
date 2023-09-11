@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
   tasks:
-    - name: create s3 bucket for storing state file
+    - name: creates3bucket
       s3_bucket: Ansible-bucket-septemb
       state: present
