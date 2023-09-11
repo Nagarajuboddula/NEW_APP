@@ -35,7 +35,7 @@ data "template_file" "ansible_inventory" {
   template = "${file("${path.module}/hosts.tmpl")}"
 
   vars = {
-    public_ips = "${join("\n", aws_instance.public_instance.*.public_ip)}"
+    public_ips = "${join("\n", aws_instance.Ans_frontend_ec2_instance.*.public_ip)}"
   }
 }
 
