@@ -30,13 +30,13 @@ pipeline {
        stage ('terraform init') {
            steps {
               sh 'terraform init'
-              sh 'ansible-playbook terraform.yml app_env=terraform'
+              sh 'ansible-playbook terraform.yml'
          }
        }
         stage ('terraform plan') {
             steps {
                 sh 'terraform plan'
-                sh 'ansible-playbook terraform.yml app_env=terraform'
+                sh 'ansible-playbook terraform.yml'
             }
         } 
     }

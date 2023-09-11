@@ -5,7 +5,6 @@ vars:
  s3_bucket: ansiblebucketseptemb
  key: terraform.tfstate
  region: eu-east-2
- app_env: terraform
 tasks:
 - name: Run terraform scripts
 terraform:
@@ -15,4 +14,3 @@ terraform:
   bucket: "{{s3_bucket}}"
   key: "{{key}}"
   region: "{{region}}"
-  variables_file: "{{app_env}}.tfvars"
