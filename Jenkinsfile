@@ -1,11 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('tfff') {
-        steps{
-            sh "terraform init -reconfigure"
-        }
-       }
+       // stage('tfff') {
+       // steps{
+       //     sh "terraform init -reconfigure"
+       // }
+       //}
 
 
     stage('S3 create bucket') {
