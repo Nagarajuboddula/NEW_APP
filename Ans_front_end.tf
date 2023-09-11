@@ -29,14 +29,19 @@ resource "aws_instance" "Ans_frontend_ec2_instance" {
 
 
 
-resource "local_file" "inventory" {
-  content = templatefile("inventory.tmpl", { content = tomap({
-    for instance in aws_instance.Ans_frontend_ec2_instance:
-      instance.tags.Name => instance.public_dns
-    })
-  })
-  filename = format("%s/%s", abspath(path.root), "inventory.yaml")
+## file inventory.tf
+
+data "template_file" "ansible_inventory" {
+  template = "${file("${path.module}/hosts.tmpl")}"
+
+  vars = {
+    public_ips = "${join("\n", aws_instance.public_instance.*.public_ip)}"
+  }
 }
 
+resource "local_file" "hosts" {
+  filename = "${path.module}/hosts"
 
+  content = data.template_file.ansible_inventory.rendered
+}
 
