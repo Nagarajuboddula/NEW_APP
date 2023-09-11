@@ -2,10 +2,6 @@
 - hosts: localhost
   become: True
   tasks:
-   - name: install boto3
-      pip:
-       name: boto3
-       state: present
     - name: create s3 bucket for storing state file
       s3_bucket: Ansible_bucket_septemb
       state: present
