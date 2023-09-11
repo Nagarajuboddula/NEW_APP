@@ -2,5 +2,6 @@
 - hosts: localhost
   tasks:
     - name: creates3bucket
-      s3_bucket: Ansible-bucket-septemb
+      s3_bucket:
+      name: Ansible-bucket-septemb
       state: present
