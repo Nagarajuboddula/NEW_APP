@@ -3,5 +3,5 @@
   tasks:
     - name: creates3bucket
       s3_bucket:
-       name: ansiblebucketseptemb
+       name: ansiblebucketseptemb2
        state: present
