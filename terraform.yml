@@ -2,7 +2,7 @@
 - hosts: localhost
 vars:
  state: present
- s3_bucket: Ansible-bucket-septemb
+ s3_bucket: ansiblebucketseptemb
  key: terraform.tfstate
  region: eu-east-2
  app_env: terraform
